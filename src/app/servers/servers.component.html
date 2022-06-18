@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-12">
+    <div
+      class="alert alert-success text-center pl-3 pr-3"
+      role="alert"
+      [hidden]="!successAlert"
+    >
+      {{ serverCreationStatus }}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 p-5">
+    <h4>Create a Server</h4>
+
+    <form>
+      <label for="server-name" class="form-label">Server Name:</label><br />
+      <input
+        type="text"
+        name="server-name"
+        id="server-name"
+        class="form-control"
+        [(ngModel)]="serverName"
+        placeholder="Enter server name"
+      />
+      <br />
+
+      <!-- Event Binding -->
+      <button
+        class="btn btn-primary"
+        [disabled]="!allowNewServer"
+        (click)="onCreateServer()"
+      >
+        Add Server
+      </button>
+    </form>
+  </div>
+  <div class="col-md-6 p-5">
+    <h4>Nested Components:</h4>
+    <app-server></app-server> <app-server></app-server>
+  </div>
+</div>
